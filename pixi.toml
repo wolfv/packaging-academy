@@ -2,7 +2,7 @@
 authors = ["Wolf Vollprecht <w.vollprecht@gmail.com>"]
 channels = ["conda-forge"]
 name = "packaging-academy"
-platforms = ["osx-arm64"]
+platforms = ["osx-arm64", "linux-64"]
 version = "0.1.0"
 
 [tasks]
