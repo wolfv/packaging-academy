@@ -1,0 +1,115 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+
+site_name: "Packaging Academy"
+site_url: https://prefix-dev.github.io/packaging-academy/
+
+theme:
+  name: material
+  custom_dir: mkdocs/overrides
+  favicon: assets/favicon.png
+  # logo: assets/powerdrill.png
+  font:
+    text: Red Hat Text
+    code: JetBrains Mono
+
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: prefix-light
+      accent: prefix-light
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: prefix
+      accent: prefix
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+  icon:
+    edit: material/pencil
+    view: material/eye
+
+  features:
+    - content.tabs.link
+    - content.code.copy
+    - content.action.edit
+    - content.code.annotate
+    # - content.code.select Sponsor only
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+
+extra_css:
+  - mkdocs/stylesheets/extra.css
+
+repo_url: https://github.com/prefix-dev/rattler-build/
+edit_uri: edit/main/docs/
+
+markdown_extensions:
+  - admonition
+  - def_list
+  - footnotes
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      toc_depth: 3
+      permalink: "#"
+
+extra:
+  homepage: https://prefix.dev
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/prefix_dev
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/prefix-dev
+    - icon: fontawesome/brands/github
+      link: https://github.com/prefix-dev
+  version:
+    provider: mike
+
+nav:
+  - Home: index.md
+  - Introduction:
+     - Installation: '001-introduction/installation.md'
+     - Building a package: '001-introduction/building-a-package.md'
+  - Go:
+      - Introduction: '501-go-package/README.md'
+      - temporalio-cli: '501-go-package/temporal.md'
+
+plugins:
+  - search
+  - social
+  - mike:
+      # These fields are all optional; the defaults are as below...
+      # alias_type: symlink
+      # redirect_template: null
+      # deploy_prefix: ''
+      # canonical_version: null
+      # version_selector: true
+      # css_dir: css
+      # javascript_dir: js
