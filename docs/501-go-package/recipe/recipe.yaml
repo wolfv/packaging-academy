@@ -1,0 +1,63 @@
+schema_version: 1
+
+context:
+  version: 1.3.0
+
+package:
+  name: cobra-cli
+  version: ${{ version }}
+
+source:
+  url: https://github.com/spf13/cobra-cli/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: 4d13b9c0c4e7c8c2c9e0e4b3c8e9d8f7b6a5d4c3b2a1f9e8d7c6b5a4939291
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - ${{ compiler('go') }}
+    - go-license-detector
+
+tests:
+  - script:
+      - cobra-cli --version
+      - cobra-cli --help  
+      - cobra-cli completion --help
+      # Test basic code generation
+      - mkdir test_project && cd test_project
+      - cobra-cli init --name test_app
+      - test -f main.go  # [unix]
+      - test -f cmd/root.go  # [unix]
+
+about:
+  license: Apache-2.0
+  license_file:
+    - LICENSE
+    - THIRD_PARTY_LICENSES.txt
+  summary: A generator for Cobra based CLI applications
+  description: |
+    Cobra-CLI is a command line program to generate cobra applications and commands.
+    Cobra provides its own program that will create your application and add any
+    commands you want. It's the easiest way to incorporate Cobra into your application.
+    
+    Features:
+    - Easy subcommand-based CLIs
+    - Fully POSIX-compliant flags (including short & long versions)
+    - Nested subcommands
+    - Global, local and cascading flags
+    - Intelligent suggestions (app srver... did you mean app server?)
+    - Automatic help generation for commands and flags
+    - Automatic help flag recognition of -h, --help, etc.
+    - Automatically generated shell autocompletion for your application
+    - Automatically generated man pages for your application
+    - Command aliases so you can change things without breaking them
+    - The flexibility to define your own help, usage, etc.
+  homepage: https://cobra.dev/
+  repository: https://github.com/spf13/cobra-cli
+  documentation: https://cobra.dev/
+
+extra:
+  recipe-maintainers:
+    - spf13
+    - ocefpaf
