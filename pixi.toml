@@ -8,6 +8,7 @@ version = "0.1.0"
 [tasks]
 build-docs = "mkdocs build --strict"
 serve = "mkdocs serve"
+deploy-pages = "mkdocs gh-deploy --force"
 deploy-latest = "mike deploy --push --update-aliases $RELEASE_VERSION latest"
 deploy-dev = "mike deploy --push dev devel"
 
